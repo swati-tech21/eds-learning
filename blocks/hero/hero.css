@@ -146,7 +146,7 @@
 /* MOBILE */
 @media (width < 600px) {
   .hero {
-    min-height: 520px;
+    min-height: 521px;
     padding: 40px 24px;
 
     justify-content: flex-end;
