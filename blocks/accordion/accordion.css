@@ -78,7 +78,7 @@
 
 /* Hover */
 .accordion details summary:hover {
-  background: #faf8f4;
+  background: #f7daa2;
 }
 
 
@@ -145,7 +145,7 @@
 
 
 .accordion details[open] summary {
-  background: #faf8f4;
+  background: #deaf53;;
 
   font-weight: 600;
 }

@@ -43,8 +43,8 @@
   border: 0;
   border-radius: 14px 14px 0 0;
 
-  background: #e9e1d5;
-  color: #57534e;
+  background: #fd457a;
+  color: #fdfdfd;
 
   font-size: 17px;
   font-weight: 600;
@@ -101,7 +101,7 @@
    ========================================= */
 
 .tabs .tabs-list button:hover {
-  background: #ddd1c1;
+  background: #fffeff;
   color: #111;
 }
 
@@ -113,7 +113,7 @@
 .tabs .tabs-list button[aria-selected='true'] {
   z-index: 5;
 
-  background: #fff;
+  background: #ffe5ec;;
   color: #111;
 
   font-weight: 700;
