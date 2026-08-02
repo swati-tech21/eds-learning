@@ -1,0 +1,242 @@
+/* ==============================
+   ACCORDION
+   ============================== */
+
+.accordion {
+  max-width: 1200px;
+  margin: 40px auto;
+}
+
+/* Individual accordion card */
+.accordion details {
+  border: 1px solid #e4e4e4;
+  border-radius: 14px;
+  background: #fff;
+
+  overflow: hidden;
+
+  box-shadow: 0 3px 14px rgb(0 0 0 / 4%);
+
+  transition:
+    box-shadow 0.25s ease,
+    transform 0.25s ease,
+    border-color 0.25s ease;
+}
+
+
+/* Space between items */
+.accordion details + details {
+  margin-top: 16px;
+}
+
+
+/* Hover effect */
+.accordion details:hover {
+  border-color: #ccc;
+
+  box-shadow: 0 8px 24px rgb(0 0 0 / 8%);
+
+  transform: translateY(-2px);
+}
+
+
+/* ==============================
+   QUESTION / SUMMARY
+   ============================== */
+
+.accordion details summary {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  min-height: 76px;
+
+  padding: 0 80px 0 28px;
+
+  cursor: pointer;
+  list-style: none;
+
+  background: #fff;
+  color: #181818;
+
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.4;
+
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease;
+}
+
+
+/* Remove browser arrow */
+.accordion details summary::-webkit-details-marker {
+  display: none;
+}
+
+
+/* Hover */
+.accordion details summary:hover {
+  background: #faf8f4;
+}
+
+
+/* Keyboard focus */
+.accordion details summary:focus-visible {
+  outline: 2px solid #222;
+  outline-offset: -3px;
+}
+
+
+/* ==============================
+   CIRCULAR + ICON
+   ============================== */
+
+.accordion details summary::after {
+  content: '+';
+
+  position: absolute;
+
+  top: 50%;
+  right: 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 36px;
+  height: 36px;
+
+  transform: translateY(-50%);
+
+  border-radius: 50%;
+
+  background: #f1eee8;
+  color: #111;
+
+  font-size: 25px;
+  font-weight: 300;
+  line-height: 1;
+
+  transition:
+    transform 0.25s ease,
+    background-color 0.25s ease,
+    color 0.25s ease;
+}
+
+
+/* Icon hover */
+.accordion details summary:hover::after {
+  background: #111;
+  color: #fff;
+}
+
+
+/* ==============================
+   OPEN STATE
+   ============================== */
+
+.accordion details[open] {
+  border-color: #d5d0c8;
+
+  box-shadow: 0 10px 30px rgb(0 0 0 / 8%);
+}
+
+
+.accordion details[open] summary {
+  background: #faf8f4;
+
+  font-weight: 600;
+}
+
+
+/* Change + to − */
+.accordion details[open] summary::after {
+  content: '−';
+
+  background: #111;
+  color: #fff;
+
+  transform: translateY(-50%);
+}
+
+
+/* ==============================
+   ANSWER
+   ============================== */
+
+.accordion details .accordion-item-body {
+  padding: 0 28px 28px;
+
+  background: #faf8f4;
+
+  color: #555;
+
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+
+/* subtle divider */
+.accordion details[open] .accordion-item-body {
+  border-top: 1px solid #ebe7e1;
+}
+
+
+/* Paragraph styling */
+.accordion details .accordion-item-body p {
+  max-width: 900px;
+
+  margin: 20px 0 0;
+}
+
+
+/* ==============================
+   MOBILE
+   ============================== */
+
+@media (width < 600px) {
+
+  .accordion {
+    margin: 28px auto;
+  }
+
+  .accordion details {
+    border-radius: 10px;
+  }
+
+  .accordion details + details {
+    margin-top: 12px;
+  }
+
+  .accordion details summary {
+    min-height: 68px;
+
+    padding:
+      14px
+      65px
+      14px
+      20px;
+
+    font-size: 17px;
+  }
+
+  .accordion details summary::after {
+    right: 18px;
+
+    width: 32px;
+    height: 32px;
+
+    font-size: 22px;
+  }
+
+  .accordion details .accordion-item-body {
+    padding:
+      0
+      20px
+      22px;
+
+    font-size: 16px;
+  }
+}

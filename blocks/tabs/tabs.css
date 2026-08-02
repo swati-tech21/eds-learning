@@ -1,57 +1,284 @@
+/* =========================================
+   TABS WRAPPER
+   ========================================= */
+
+.tabs {
+  width: 100%;
+  max-width: 1100px;
+  margin: 48px auto;
+}
+
+
+/* =========================================
+   TAB NAVIGATION
+   ========================================= */
+
 .tabs .tabs-list {
-  display: flex;
-  gap: 0.5ch;
-  max-width: 100%;
-  font-size: var(--body-font-size-xs);
-  overflow-x: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  width: 90%;
+  margin: 0 auto;
+
+  gap: 8px;
+
+  overflow: visible;
 }
 
-@media (width >= 600px) {
-  .tabs .tabs-list {
-    font-size: var(--body-font-size-s);
-  }
-}
 
-@media (width >= 900px) {
-  .tabs .tabs-list {
-    font-size: var(--body-font-size-m);
-  }
-}
+/* =========================================
+   TAB BUTTON
+   ========================================= */
 
 .tabs .tabs-list button {
-  flex: 0 0 max-content;
+  position: relative;
+  z-index: 1;
+
+  width: 100%;
+  min-height: 64px;
+
   margin: 0;
-  border: 1px solid var(--dark-color);
-  border-radius: 0;
-  padding: 0.5em;
-  background-color: #949494;
-  color: initial;
-  font-weight: bold;
-  line-height: unset;
-  text-align: initial;
-  text-overflow: unset;
-  overflow: unset;
-  white-space: unset;
-  transition: background-color 0.2s;
+  padding: 16px 28px;
+
+  border: 0;
+  border-radius: 14px 14px 0 0;
+
+  background: #e9e1d5;
+  color: #57534e;
+
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.2;
+
+  text-align: center;
+  cursor: pointer;
+
+  overflow: visible;
+
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
 }
+
+
+/* remove paragraph margin */
 
 .tabs .tabs-list button p {
+  position: relative;
+  z-index: 2;
   margin: 0;
 }
 
-.tabs .tabs-list button[aria-selected='true'] {
-  border-bottom: 1px solid var(--background-color);
-  background-color: var(--background-color);
-  cursor: initial;
+
+/* =========================================
+   CREATE THE SLANTED RIGHT SIDE
+   ========================================= */
+
+.tabs .tabs-list button::after {
+  content: "";
+
+  position: absolute;
+  z-index: -1;
+
+  top: 0;
+  right: -18px;
+
+  width: 40px;
+  height: 100%;
+
+  background: inherit;
+
+  border-radius: 0 14px 0 0;
+
+  transform: skewX(25deg);
+  transform-origin: bottom;
 }
 
-.tabs .tabs-panel {
-  margin-top: -1px;
-  padding: 24px;
-  border: 1px solid var(--dark-color);
-  overflow: auto;
+
+/* =========================================
+   HOVER
+   ========================================= */
+
+.tabs .tabs-list button:hover {
+  background: #ddd1c1;
+  color: #111;
 }
+
+
+/* =========================================
+   ACTIVE TAB
+   ========================================= */
+
+.tabs .tabs-list button[aria-selected='true'] {
+  z-index: 5;
+
+  background: #fff;
+  color: #111;
+
+  font-weight: 700;
+
+  transform: translateY(1px);
+}
+
+
+/* =========================================
+   CONTENT PANEL
+   ========================================= */
+
+.tabs .tabs-panel {
+  position: relative;
+  z-index: 3;
+
+  width: 100%;
+  min-height: 220px;
+
+  box-sizing: border-box;
+
+  margin: 0 auto;
+  padding: 48px 64px;
+
+  border: 0;
+  border-radius: 14px;
+
+  background: #fff;
+
+  box-shadow:
+    0 12px 40px rgb(0 0 0 / 8%);
+
+  text-align: center;
+
+  overflow: hidden;
+}
+
+
+/* =========================================
+   CONTENT TEXT
+   ========================================= */
+
+.tabs .tabs-panel p {
+  max-width: 720px;
+
+  margin: 0 auto;
+
+  color: #4b4b4b;
+
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+
+.tabs .tabs-panel p + p {
+  margin-top: 8px;
+}
+
+
+/* =========================================
+   HIDDEN PANEL
+   ========================================= */
 
 .tabs .tabs-panel[aria-hidden='true'] {
   display: none;
+}
+
+
+/* =========================================
+   TABLET
+   ========================================= */
+
+@media (width < 900px) {
+
+  .tabs {
+    width: calc(100% - 48px);
+    margin: 40px auto;
+  }
+
+  .tabs .tabs-list {
+    width: 92%;
+  }
+
+  .tabs .tabs-list button {
+    min-height: 58px;
+
+    padding: 14px 18px;
+
+    font-size: 16px;
+  }
+
+  .tabs .tabs-list button::after {
+    right: -12px;
+    width: 28px;
+  }
+
+  .tabs .tabs-panel {
+    padding: 40px;
+  }
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (width < 600px) {
+
+  .tabs {
+    width: calc(100% - 32px);
+    margin: 32px auto;
+  }
+
+
+  /* Two tabs per row */
+
+  .tabs .tabs-list {
+    grid-template-columns: repeat(2, 1fr);
+
+    width: 100%;
+    gap: 8px;
+
+    margin-bottom: 10px;
+  }
+
+
+  /* Remove slant on mobile */
+
+  .tabs .tabs-list button::after {
+    display: none;
+  }
+
+
+  .tabs .tabs-list button {
+    min-height: 52px;
+
+    padding: 12px 10px;
+
+    border-radius: 8px;
+
+    font-size: 15px;
+  }
+
+
+  .tabs .tabs-list button[aria-selected='true'] {
+    background: #111;
+    color: #fff;
+
+    transform: none;
+  }
+
+
+  .tabs .tabs-panel {
+    min-height: auto;
+
+    padding: 28px 22px;
+
+    border-radius: 10px;
+
+    text-align: left;
+  }
+
+
+  .tabs .tabs-panel p {
+    font-size: 16px;
+    line-height: 1.6;
+  }
 }
