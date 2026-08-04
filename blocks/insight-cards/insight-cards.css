@@ -1,0 +1,599 @@
+/* ==========================================================================
+   Insight Cards Block
+   ========================================================================== */
+
+.background-color{
+  background: #f7eeee;
+}   
+.insight-cards {
+  width: 100%;
+  box-sizing: border-box;  
+  padding: 31px 17px;
+}
+
+#industry-insights {
+  text-align: center;
+  
+    padding-top: 23px;
+}
+
+/* ==========================================================================
+   Cards Grid
+   ========================================================================== */
+
+.insight-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 28px;
+
+  width: 100%;
+}
+
+
+/* ==========================================================================
+   Card
+   ========================================================================== */
+
+.insight-card {
+  display: flex;
+  flex-direction: column;
+
+  min-width: 0;
+
+  margin: 0;
+}
+
+
+/* ==========================================================================
+   Image
+   ========================================================================== */
+
+.insight-card-image {
+  width: 100%;
+
+  aspect-ratio: 16 / 9;
+
+  overflow: hidden;
+
+  margin-bottom: 22px;
+}
+
+.insight-card-image picture {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+}
+
+.insight-card-image img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+}
+
+
+/* ==========================================================================
+   Content
+   ========================================================================== */
+
+.insight-card-content {
+  display: flex;
+  flex-direction: column;
+
+  flex: 1;
+}
+
+
+/* ==========================================================================
+   Title
+   ========================================================================== */
+
+.insight-card-title {
+     margin: 0 0 2px;
+    font-family: roboto, sans-serif;
+    font-size: 21px;
+    width: 22rem;
+    letter-spacing: 1px;
+    line-height: 1.3;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+
+/* ==========================================================================
+   Description
+   ========================================================================== */
+
+.insight-card-description {
+      margin-bottom: 18px;
+    font-family: roboto, sans-serif;
+    font-size: 14.6px;
+    letter-spacing: 0.5px;
+    line-height: 1.5;
+    color: #555;
+}
+
+.insight-card-description p {
+  margin: 0;
+}
+
+
+/* ==========================================================================
+   Author / Meta
+   ========================================================================== */
+
+.insight-card-meta {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  margin-bottom: 14px;
+}
+
+.insight-cards-cta>a{
+    color:black !important;
+}
+
+/* Author icon */
+
+.insight-card-author-icon {
+  display: block;
+
+  width: 30px;
+  height: 30px;
+
+  flex-shrink: 0;
+
+  object-fit: contain;
+}
+
+
+/* Meta text */
+
+.insight-card-meta-text {
+  display: flex;
+  flex-direction: column;
+
+  gap: 2px;
+}
+
+
+/* Author */
+
+.insight-card-author {
+  margin: 0;
+
+  font-family: roboto, sans-serif;
+
+  font-size: 14px;
+  line-height: 1.3;
+
+  font-weight: 600;
+
+  color: #555;
+}
+
+
+/* Date */
+
+.insight-card-date {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: 6px;
+
+  margin: 0;
+
+  font-family: roboto, sans-serif;
+
+  font-size: 13px;
+  line-height: 1.3;
+
+  color: #666;
+}
+
+
+/* Separator */
+
+.insight-card-separator {
+  font-size: 10px;
+}
+
+
+/* ==========================================================================
+   Tags
+   ========================================================================== */
+
+.insight-card-tags {
+  display: flex;
+  align-items: center;
+
+  flex-wrap: wrap;
+
+  gap: 8px;
+}
+
+.insight-card-tag {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 4px 7px;
+
+  font-family: roboto, sans-serif;
+
+  font-size: 12px;
+  line-height: 1.2;
+
+  color: #555;
+
+  background: #f3f1ee;
+}
+
+
+/* ==========================================================================
+   Tablet
+   ========================================================================== */
+
+@media (max-width: 991px) and (min-width: 768px) {
+
+  .insight-cards-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 32px 24px;
+  }
+}
+
+
+/* ==========================================================================
+   Mobile
+   ========================================================================== */
+
+@media (max-width: 767px) {
+
+  .insight-cards-grid {
+    grid-template-columns: 1fr;
+
+    gap: 48px;
+  }
+
+
+  /* ------------------------------------------------------------------------
+     Image
+     ------------------------------------------------------------------------ */
+
+  .insight-card-image {
+    margin-bottom: 24px;
+
+    aspect-ratio: 16 / 9;
+  }
+
+
+  /* ------------------------------------------------------------------------
+     Title
+     ------------------------------------------------------------------------ */
+
+  .insight-card-title {
+    margin-bottom: 14px;
+
+    font-size: 20px;
+    line-height: 1.3;
+  }
+
+
+  /* ------------------------------------------------------------------------
+     Description
+     ------------------------------------------------------------------------ */
+
+  .insight-card-description {
+    margin-bottom: 20px;
+
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+
+  /* ------------------------------------------------------------------------
+     Meta
+     ------------------------------------------------------------------------ */
+
+  .insight-card-meta {
+    margin-top: 0;
+    margin-bottom: 16px;
+  }
+
+
+  /* ------------------------------------------------------------------------
+     Author
+     ------------------------------------------------------------------------ */
+
+  .insight-card-author {
+    font-size: 14px;
+  }
+
+
+  /* ------------------------------------------------------------------------
+     Date
+     ------------------------------------------------------------------------ */
+
+  .insight-card-date {
+    font-size: 13px;
+  }
+
+
+  /* ------------------------------------------------------------------------
+     Tags
+     ------------------------------------------------------------------------ */
+
+  .insight-card-tags {
+    gap: 8px;
+  }
+
+  .insight-card-tag {
+    font-size: 12px;
+
+    padding: 4px 7px;
+  }
+}
+/* ==========================================================================
+   Read More Insights CTA
+   ========================================================================== */
+
+.insight-cards-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+
+  margin-top: 42px;
+}
+
+.insight-cards-cta-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 18px;
+
+  min-height: 42px;
+
+  padding: 0 18px;
+
+  box-sizing: border-box;
+
+  border: 1px solid #555;
+
+  background: transparent;
+
+  color: #333;
+
+  font-family: roboto, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1;
+
+  text-decoration: none;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.insight-cards-cta-link:hover {
+  color: #fff;
+  background: #222;
+}
+
+
+/* Arrow */
+
+.insight-cards-cta-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 21px;
+  line-height: 1;
+
+  transition: transform 0.2s ease;
+}
+
+
+/* Arrow moves slightly on hover */
+
+.insight-cards-cta-link:hover .insight-cards-cta-arrow {
+  transform: translateX(3px);
+}
+
+
+/* ==========================================================================
+   Mobile CTA
+   ========================================================================== */
+
+@media (max-width: 767px) {
+
+  .insight-cards-cta {
+    margin-top: 36px;
+  }
+
+  .insight-cards-cta-link {
+    min-height: 42px;
+
+    padding: 0 18px;
+
+    font-size: 13px;
+  }
+}
+@media (max-width: 767px) {
+
+  /* ------------------------------------------------------------------------
+     Section Heading
+     ------------------------------------------------------------------------ */
+
+  #industry-insights {
+    padding: 24px 16px 0;
+
+    font-size: 20px;
+    line-height: 1.3;
+  }
+
+
+  /* ------------------------------------------------------------------------
+     Block
+     ------------------------------------------------------------------------ */
+
+  .insight-cards {
+    padding: 18px 0px;
+  }
+
+
+  /* ------------------------------------------------------------------------
+     Grid
+     ------------------------------------------------------------------------ */
+
+  .insight-cards-grid {
+    grid-template-columns: minmax(0, 1fr);
+
+    gap: 48px;
+  }
+
+
+  /* ------------------------------------------------------------------------
+     Card
+     ------------------------------------------------------------------------ */
+
+  .insight-card {
+    width: 100%;
+  }
+
+
+  /* ------------------------------------------------------------------------
+     Image
+     ------------------------------------------------------------------------ */
+
+  .insight-card-image {
+    width: 100%;
+
+    aspect-ratio: 16 / 9;
+
+    margin-bottom: 22px;
+  }
+
+
+  /* ------------------------------------------------------------------------
+     Title
+     ------------------------------------------------------------------------ */
+
+  .insight-card-title {
+    width: 100%;
+
+    margin: 0 0 4px;
+
+    font-size: 18px;
+    line-height: 1.3;
+
+    letter-spacing: 0.5px;
+  }
+
+
+  /* ------------------------------------------------------------------------
+     Description
+     ------------------------------------------------------------------------ */
+
+  .insight-card-description {
+    margin-bottom: 20px;
+
+    font-size: 13px;
+    line-height: 1.5;
+
+    letter-spacing: 0.3px;
+  }
+
+
+  /* ------------------------------------------------------------------------
+     Meta
+     ------------------------------------------------------------------------ */
+
+  .insight-card-meta {
+    gap: 10px;
+
+    margin-bottom: 16px;
+  }
+
+  .insight-card-author-icon {
+    width: 30px;
+    height: 30px;
+
+    flex-basis: 30px;
+  }
+
+  .insight-card-author {
+    font-size: 14px;
+  }
+
+  .insight-card-date {
+    font-size: 13px;
+  }
+
+
+  /* ------------------------------------------------------------------------
+     Tags
+     ------------------------------------------------------------------------ */
+
+  .insight-card-tags {
+    gap: 8px;
+  }
+
+  .insight-card-tag {
+    padding: 4px 7px;
+
+    font-size: 12px;
+  }
+
+
+  /* ------------------------------------------------------------------------
+     CTA
+     ------------------------------------------------------------------------ */
+
+  .insight-cards-cta {
+    margin-top: 36px;
+  }
+
+  .insight-cards-cta-link {
+    min-height: 42px;
+
+    padding: 0 18px;
+
+    font-size: 13px;
+  }
+}
+
+
+/* ==========================================================================
+   Small Mobile
+   ========================================================================== */
+
+@media (max-width: 375px) {
+
+  .insight-cards {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .insight-card-title {
+    font-size: 19px;
+  }
+
+  .insight-card-description {
+    font-size: 13.5px;
+  }
+}
