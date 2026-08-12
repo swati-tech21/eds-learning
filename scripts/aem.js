@@ -593,45 +593,6 @@ async function loadHeader(header) {
   return loadBlock(headerBlock);
 }
 
-
-async function fetchPlaceholders(prefix = 'default') {
-  window.placeholders = window.placeholders || {};
-  console.log("window.placeholders",window.placeholders);
-  if (!window.placeholders[prefix]) {
-    window.placeholders[prefix] = new Promise((resolve) => {
-      console.log("===>",prefix)
-      let localizedURL = new URL(window.location.origin+"/"+prefix+"/placeholders.json");
-     
-      //console.log("prefix",prefix,(`${prefix === 'default' ? '' : prefix}/placeholders.json`));
-      //fetch(`${prefix === 'default' ? '' : prefix}/placeholders.json`)
-      fetch(localizedURL)
-        .then((resp) => {
-          if (resp.ok) {
-            return resp.json();
-          }
-          return {};
-        })
-        .then((json) => {
-          const placeholders = {};
-          json.data
-            .filter((placeholder) => placeholder.Key)
-            .forEach((placeholder) => {
-              placeholders[toCamelCase(placeholder.Key)] = placeholder.Text;
-            });
-          window.placeholders[prefix] = placeholders;
-          resolve(window.placeholders[prefix]);
-        })
-        .catch(() => {
-          // error loading placeholders
-          window.placeholders[prefix] = {};
-          resolve(window.placeholders[prefix]);
-        });
-    });
-  }
-  return window.placeholders[`${prefix}`];
-}
-
-
 /**
  * Loads a block named 'footer' into footer
  * @param footer footer element
